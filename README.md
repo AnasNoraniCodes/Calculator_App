@@ -1,17 +1,23 @@
-# calculator
+# 📱 Advanced Calculator App
 
-A new Flutter project.
-A Calculator App.
+### 🚀 A powerful calculator built with Flutter
 
-## Getting Started
+![Calculator App](https://your-image-link.com)  <!-- Replace with an actual screenshot of your app -->
 
-This project is a starting point for a Flutter application.
+## 👨‍💻 About Me
+- **Author:** Anas Norani
+- **GitHub Profile:** [AnasNoraniCodes](https://github.com/AnasNoraniCodes)
+- **Project Repository:** [Calculator_App](https://github.com/AnasNoraniCodes/Calculator_App)
+- **Date:** March 2025
 
-A few resources to get you started if this is your first Flutter project:
+## 📢 Features
+✅ Basic arithmetic operations (+, -, *, /)  
+✅ Advanced functions (sin, cos, tan, log)  
+✅ History of previous calculations  
+✅ Dark & Light Mode
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## 🔧 Installation Guide
+1. Clone the repository
+   ```sh
+   git clone https://github.com/AnasNoraniCodes/Calculator_App.git
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.

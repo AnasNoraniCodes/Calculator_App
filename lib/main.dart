@@ -1,41 +1,21 @@
- 
-
 import 'package:flutter/material.dart';
- 
+import 'package:get/get.dart';
+import 'calculator_screen.dart';
 
 void main() {
-  runApp(const MyApp());
-
+  runApp(MyApp());
 }
 
-class MyApp extends StatefulWidget {
-  const MyApp({super.key});
-
-  @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
+// Root Widget
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-          home: Scaffold(
-            
-            backgroundColor: Colors.blue,
-            appBar: AppBar(
-              actions: [
-                Row(children: [
-                 Padding(padding:  EdgeInsets.all(100),
-                 child: Icon(Icons.access_alarm_sharp),
-                  )
-              ],
-               ),
-             
-  ],
-
-          ), 
-
-    ));
+      themeMode: ThemeMode.system, // Automatically detects dark/light mode
+      theme: ThemeData.light(), // Light Theme
+      darkTheme: ThemeData.dark(), // Dark Theme
+      home: CalculatorScreen(), // Start at the Calculator Screen
+    );
   }
-} 
+}
