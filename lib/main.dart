@@ -17,6 +17,15 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+          home: Scaffold(
+            
+            backgroundColor: Colors.blue,
+            appBar: AppBar(leading: Text('AppBar'),),
+
+          ), 
+
+    );
   }
-}
+} 
