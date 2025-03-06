@@ -1,15 +1,14 @@
+import 'package:calculator/reusable_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:math_expressions/math_expressions.dart';
 import 'history_screen.dart';
-import 'reuseable_wigets.dart';
-
 
 void main() {
   runApp(CalculatorScreen());
 }
 
-// Controller for State Management
+//  Controller for State Management
 class CalculatorController extends GetxController {
   var input = ''.obs; // Holds user input
   var output = ''.obs; // Holds result
@@ -25,7 +24,6 @@ class CalculatorController extends GetxController {
         if (input.value.isNotEmpty) {
           input.value = input.value.substring(0, input.value.length - 1);
         }
-
       }
     } else if (value == "=") {
       calculateResult();
@@ -37,7 +35,8 @@ class CalculatorController extends GetxController {
   // Function to evaluate the mathematical expression
   void calculateResult() {
     try {
-      String formattedInput = input.value.replaceAll('×', '*').replaceAll('÷', '/');
+      String formattedInput =
+          input.value.replaceAll('×', '*').replaceAll('÷', '/');
       Parser p = Parser();
       Expression exp = p.parse(formattedInput);
       ContextModel cm = ContextModel();
@@ -47,45 +46,64 @@ class CalculatorController extends GetxController {
       // Add to history
       history.add("${input.value} = ${output.value}");
     } catch (e) {
-      output.value = "Error";
+      output.value = "Invalid Entry";
     }
   }
 }
 
-// Calculator Screen
+// 🔹 Calculator Screen UI
 class CalculatorScreen extends StatelessWidget {
   final CalculatorController controller = Get.put(CalculatorController());
 
   final List<String> buttons = [
-    "C", "⌫", "(", ")",
-    "7", "8", "9", "÷",
-    "4", "5", "6", "×",
-    "1", "2", "3", "-",
-    "0", ".", "=", "+"
+    "C",
+    "⌫",
+    "(",
+    ")",
+    "7",
+    "8",
+    "9",
+    "÷",
+    "4",
+    "5",
+    "6",
+    "×",
+    "1",
+    "2",
+    "3",
+    "-",
+    "0",
+    ".",
+    "=",
+    "+"
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       appBar: AppBar(
-        title: Text("Calculator App"),
+        leading: IconButton(
+          onPressed: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => AboutScreen(),
+                ));
+          },
+          icon: Icon(
+            Icons.menu_outlined,
+            color: Colors.yellow.shade700,
+          ),
+        ),
+        backgroundColor: Colors.black,
         actions: [
           IconButton(
-            icon: Icon(Icons.history),
+            icon: Icon(Icons.history, color: Colors.yellow.shade700),
             onPressed: () {
               Get.to(() => HistoryScreen());
             },
           ),
-          ElevatedButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => AboutScreen()),
-              );
-            },
-            child: Text("About"),
-          ),
-
         ],
       ),
       body: Column(
@@ -100,14 +118,17 @@ class CalculatorScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Obx(() => Text(
-                    controller.input.value,
-                    style: TextStyle(fontSize: 32),
-                  )),
+                        controller.input.value,
+                        style: TextStyle(fontSize: 32, color: Colors.white),
+                      )),
                   SizedBox(height: 10),
                   Obx(() => Text(
-                    controller.output.value,
-                    style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
-                  )),
+                        controller.output.value,
+                        style: TextStyle(
+                            fontSize: 40,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.yellow),
+                      )),
                 ],
               ),
             ),
@@ -123,9 +144,18 @@ class CalculatorScreen extends StatelessWidget {
                 childAspectRatio: 1.3,
               ),
               itemBuilder: (context, index) {
+                String buttonText = buttons[index];
+
+                // 🔹 Define button color (Black for numbers, Yellow for others)
+                Color buttonColor =
+                    RegExp(r'^[0=.-123456789]$').hasMatch(buttonText)
+                        ? Colors.white24 // Numbers 1-9 → Black
+                        : Colors.yellow.shade800; // Other buttons → Yellow
+
                 return CalculatorButton(
-                  text: buttons[index],
-                  onTap: () => controller.onButtonPressed(buttons[index]),
+                  text: buttonText,
+                  onTap: () => controller.onButtonPressed(buttonText),
+                  color: buttonColor,
                 );
               },
             ),
@@ -140,23 +170,29 @@ class CalculatorScreen extends StatelessWidget {
 class CalculatorButton extends StatelessWidget {
   final String text;
   final VoidCallback onTap;
+  final Color color; // Button color parameter
 
-  CalculatorButton({required this.text, required this.onTap});
+  const CalculatorButton(
+      {required this.text, required this.onTap, required this.color});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        margin: EdgeInsets.all(8),
+        margin: EdgeInsets.all(4),
         decoration: BoxDecoration(
-          color: Colors.blueGrey.shade100,
-          borderRadius: BorderRadius.circular(10),
+          color: color, // Apply dynamic button color
+          shape: BoxShape.circle,
         ),
         child: Center(
           child: Text(
             text,
-            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
       ),
