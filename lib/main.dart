@@ -22,7 +22,16 @@ class _MyAppState extends State<MyApp> {
           home: Scaffold(
             
             backgroundColor: Colors.blue,
-            appBar: AppBar(leading: Text('AppBar'),),
+            appBar: AppBar(
+              actions: [
+                Row(children: [
+                 Padding(padding:  EdgeInsets.all(100),
+                 child: Icon(Icons.access_alarm_sharp),
+                  )
+              ],
+               ),
+             
+
 
           ), 
 
