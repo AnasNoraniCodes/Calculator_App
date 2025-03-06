@@ -2,7 +2,7 @@
 
 ### 🚀 A powerful calculator built with Flutter
 
-![Calculator App](https://www.google.com/url?sa=i&url=https%3A%2F%2Fsupport.apple.com%2Fen-om%2Fguide%2Fiphone%2Fiph1ac0b5cc%2Fios&psig=AOvVaw1HWe14Lhp4tyTP3PggrVTg&ust=1741365015410000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCLien67w9YsDFQAAAAAdAAAAABAJ)   
+![Calculator App](https://help.apple.com/assets/678AF3BDAED93ED9D1042F84/678AF3C89EC3C835220A70FE/en_US/f2879765ab153bf235cef67ccb65ba92.png)   
 
 ## 👨‍💻 About Me
 - **Author:** Anas Norani
