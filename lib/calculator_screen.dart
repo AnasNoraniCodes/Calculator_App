@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:math_expressions/math_expressions.dart';
 import 'history_screen.dart';
+import 'reuseable_wigets.dart';
 
 
 void main() {
@@ -67,14 +68,24 @@ class CalculatorScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Advanced Calculator"),
+        title: Text("Calculator App"),
         actions: [
           IconButton(
             icon: Icon(Icons.history),
             onPressed: () {
               Get.to(() => HistoryScreen());
             },
-          )
+          ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => AboutScreen()),
+              );
+            },
+            child: Text("About"),
+          ),
+
         ],
       ),
       body: Column(
