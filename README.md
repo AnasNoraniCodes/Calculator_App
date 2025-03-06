@@ -8,7 +8,7 @@
 - **Author:** Anas Norani
 - **GitHub Profile:** [AnasNoraniCodes](https://github.com/AnasNoraniCodes)
 - **Project Repository:** [Calculator_App](https://github.com/AnasNoraniCodes/Calculator_App)
-- **Date:** March 2025
+- **Date:** March 2024
 
 ## 📢 Features
 ✅ Basic arithmetic operations (+, -, *, /)  
